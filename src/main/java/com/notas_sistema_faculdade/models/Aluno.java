@@ -4,6 +4,7 @@ import com.notas_sistema_faculdade.enums.Cursos;
 import com.notas_sistema_faculdade.enums.Genero;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.Objects;
 
 public class Aluno implements Serializable {
@@ -11,7 +12,7 @@ public class Aluno implements Serializable {
     private String nome;
     private String sobrenome;
     private Integer idade;
-    private String dataNascimento;
+    private Date dataNascimento;
     private String cpf;
     private String matricula;
     private String rg;
@@ -22,7 +23,7 @@ public class Aluno implements Serializable {
      * O construtor não leva matricula, curso pois são definidos por outro sistema.
      */
 
-    public Aluno(String nome, String sobrenome, Integer idade, String dataNascimento, String cpf, String rg, Genero genero) {
+    public Aluno(String nome, String sobrenome, Integer idade, Date dataNascimento, String cpf, String rg, Genero genero) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.idade = idade;
@@ -56,11 +57,11 @@ public class Aluno implements Serializable {
         this.idade = idade;
     }
 
-    public String getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(String dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
