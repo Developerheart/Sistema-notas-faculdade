@@ -10,14 +10,14 @@ public class Curso implements Serializable {
 
     private Cursos curso;
     private List<Materia> materia = new ArrayList<>();
-    private Aluno aluno;
+    private List<Aluno> aluno = new ArrayList<>();
+    private List<Professor> professores = new ArrayList<>();
 
     public Curso() {
     }
 
-    public Curso(Cursos curso, Aluno aluno) {
+    public Curso(Cursos curso) {
         this.curso = curso;
-        this.aluno = aluno;
     }
 
     public Cursos getCurso() {
@@ -28,16 +28,24 @@ public class Curso implements Serializable {
         return materia;
     }
 
-    public Aluno getAluno() {
+    public List<Aluno> getAluno() {
         return aluno;
+    }
+
+    public List<Professor> getProfessores() {
+        return professores;
     }
 
     public void setCurso(Cursos curso) {
         this.curso = curso;
     }
 
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
+    public void addAluno(Aluno aluno) {
+        this.aluno.add(aluno);
+    }
+
+    public void addProfessores(Professor professor) {
+        this.professores.add(professor);
     }
 
     public void addMateria(Materia materia){
