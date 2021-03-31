@@ -5,51 +5,67 @@ import com.notas_sistema_faculdade.enums.Cursos;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.PrimitiveIterator;
 
 public class Curso implements Serializable {
 
-    private Cursos curso;
-    private List<Materia> materia = new ArrayList<>();
-    private List<Aluno> aluno = new ArrayList<>();
-    private List<Professor> professores = new ArrayList<>();
 
+    private Long idCurso;
+    private String nomeCurso;
+    private List<Turma> turmas = new ArrayList<>();
     public Curso() {
     }
 
-    public Curso(Cursos curso) {
-        this.curso = curso;
+    public Curso(Long idCurso, String nomeCurso) {
+        this.idCurso = idCurso;
+        this.nomeCurso = nomeCurso;
     }
 
-    public Cursos getCurso() {
-        return curso;
+    public Long getIdCurso() {
+        return idCurso;
     }
 
-    public List<Materia> getMateria() {
-        return materia;
+    public void setIdCurso(Long idCurso) {
+        this.idCurso = idCurso;
     }
 
-    public List<Aluno> getAluno() {
-        return aluno;
+    public String getNomeCurso() {
+        return nomeCurso;
     }
 
-    public List<Professor> getProfessores() {
-        return professores;
+    public void setNomeCurso(String nomeCurso) {
+        this.nomeCurso = nomeCurso;
     }
 
-    public void setCurso(Cursos curso) {
-        this.curso = curso;
+    public List<Turma> getTurmas() {
+        return turmas;
     }
 
-    public void addAluno(Aluno aluno) {
-        this.aluno.add(aluno);
+    public void addTurmas(Turma turma) {
+        this.turmas.add(turma);
     }
 
-    public void addProfessores(Professor professor) {
-        this.professores.add(professor);
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Curso curso = (Curso) o;
+        return Objects.equals(idCurso, curso.idCurso) && Objects.equals(nomeCurso, curso.nomeCurso) && Objects.equals(turmas, curso.turmas);
     }
 
-    public void addMateria(Materia materia){
-        this.materia.add(materia);
-        System.out.println("Adicionado com sucesso!");
+    @Override
+    public int hashCode() {
+        return Objects.hash(idCurso, nomeCurso, turmas);
     }
+
+    @Override
+    public String toString() {
+        return "Curso{" +
+                "idCurso=" + idCurso +
+                ", nomeCurso='" + nomeCurso + '\'' +
+                ", turmas=" + turmas +
+                '}';
+    }
+
 }

@@ -2,6 +2,7 @@ package com.notas_sistema_faculdade.models;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 public class Turma implements Serializable {
 
@@ -59,5 +60,29 @@ public class Turma implements Serializable {
 
     public void addTurnos(Turnos turno) {
         this.turnos.add(turno);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Turma turma = (Turma) o;
+        return Objects.equals(idTurma, turma.idTurma) && Objects.equals(codigoTurma, turma.codigoTurma) && Objects.equals(materias, turma.materias) && Objects.equals(alunos, turma.alunos) && Objects.equals(turnos, turma.turnos);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(idTurma, codigoTurma, materias, alunos, turnos);
+    }
+
+    @Override
+    public String toString() {
+        return "Turma{" +
+                "idTurma=" + idTurma +
+                ", codigoTurma='" + codigoTurma + '\'' +
+                ", materias=" + materias +
+                ", alunos=" + alunos +
+                ", turnos=" + turnos +
+                '}';
     }
 }

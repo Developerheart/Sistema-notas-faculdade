@@ -4,7 +4,9 @@ import com.notas_sistema_faculdade.enums.Cursos;
 import com.notas_sistema_faculdade.enums.Genero;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 public class Aluno implements Serializable {
@@ -17,7 +19,7 @@ public class Aluno implements Serializable {
     private String matricula;
     private String rg;
     private Genero genero;
-    private Cursos cursos;
+    private List<Notas> notas  = new ArrayList<>();
 
     /*
      * O construtor não leva matricula, curso pois são definidos por outro sistema.
@@ -97,12 +99,13 @@ public class Aluno implements Serializable {
         this.genero = genero;
     }
 
-    public Cursos getCursos() {
-        return cursos;
+    public List<Notas> getNota() {
+        return notas;
     }
 
-    public void setCursos(Cursos cursos) {
-        this.cursos = cursos;
+
+    public void setNota(Notas nota) {
+        this.notas.add(nota);
     }
 
     @Override
@@ -110,16 +113,26 @@ public class Aluno implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Aluno aluno = (Aluno) o;
-        return nome.equals(aluno.nome) && sobrenome.equals(aluno.sobrenome) && idade.equals(aluno.idade) && dataNascimento.equals(aluno.dataNascimento) && cpf.equals(aluno.cpf) && matricula.equals(aluno.matricula) && rg.equals(aluno.rg) && genero == aluno.genero && cursos == aluno.cursos;
+        return Objects.equals(nome, aluno.nome) && Objects.equals(sobrenome, aluno.sobrenome) && Objects.equals(idade, aluno.idade) && Objects.equals(dataNascimento, aluno.dataNascimento) && Objects.equals(cpf, aluno.cpf) && Objects.equals(matricula, aluno.matricula) && Objects.equals(rg, aluno.rg) && genero == aluno.genero && Objects.equals(notas, aluno.notas);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nome, sobrenome, idade, dataNascimento, cpf, matricula, rg, genero, cursos);
+        return Objects.hash(nome, sobrenome, idade, dataNascimento, cpf, matricula, rg, genero, notas);
     }
 
     @Override
     public String toString() {
-        return getNome() + " - " + getMatricula();
+        return "Aluno{" +
+                "nome='" + nome + '\'' +
+                ", sobrenome='" + sobrenome + '\'' +
+                ", idade=" + idade +
+                ", dataNascimento=" + dataNascimento +
+                ", cpf='" + cpf + '\'' +
+                ", matricula='" + matricula + '\'' +
+                ", rg='" + rg + '\'' +
+                ", genero=" + genero +
+                ", notas=" + notas +
+                '}';
     }
 }
