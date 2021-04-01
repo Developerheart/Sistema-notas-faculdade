@@ -1,6 +1,7 @@
 ### Arquivos não essenciais ao projeto.
-
+target
 .idea
 src/test
+.class
 
 

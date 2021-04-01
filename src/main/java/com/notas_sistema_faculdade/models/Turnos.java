@@ -6,23 +6,23 @@ import java.util.Objects;
 
 public class Turnos implements Serializable {
 
-    private Long idTurno;
+    private Integer idTurno;
     private Date dataInicio;
     private Date dataTermino;
     private String tipoTurno;
 
-    public Turnos(Long idTurno, Date dataInicio, Date dataTermino, String tipoTurno) {
+    public Turnos( Date dataInicio, Date dataTermino, String tipoTurno) {
         this.idTurno = idTurno;
         this.dataInicio = dataInicio;
         this.dataTermino = dataTermino;
         this.tipoTurno = tipoTurno;
     }
 
-    public Long getIdTurno() {
+    public Integer getIdTurno() {
         return idTurno;
     }
 
-    public void setIdTurno(Long idTurno) {
+    public void setIdTurno(Integer idTurno) {
         this.idTurno = idTurno;
     }
 
