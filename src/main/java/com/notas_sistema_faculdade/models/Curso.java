@@ -17,8 +17,7 @@ public class Curso implements Serializable {
     public Curso() {
     }
 
-    public Curso(Long idCurso, String nomeCurso) {
-        this.idCurso = idCurso;
+    public Curso(String nomeCurso) {
         this.nomeCurso = nomeCurso;
     }
 

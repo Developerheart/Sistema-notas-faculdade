@@ -1,12 +1,9 @@
 package com.notas_sistema_faculdade.models;
 
-import com.notas_sistema_faculdade.enums.Cursos;
 import com.notas_sistema_faculdade.enums.Genero;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 public class Aluno implements Serializable {
@@ -20,14 +17,14 @@ public class Aluno implements Serializable {
     private String matricula;
     private String rg;
     private Genero genero;
-    private List<Notas> notas  = new ArrayList<>();
+    private Notas notas;
+    private String status;
 
     /*
      * O construtor não leva matricula, curso pois são definidos por outro sistema.
      */
 
-    public Aluno(Integer idAluno,String nome, String sobrenome, Integer idade, Date dataNascimento, String cpf, String rg, Genero genero) {
-        this.idAluno = idAluno;
+    public Aluno(String nome, String sobrenome, Integer idade, Date dataNascimento, String cpf, String rg, Genero genero, Notas nota, String status) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.idade = idade;
@@ -35,6 +32,8 @@ public class Aluno implements Serializable {
         this.cpf = cpf;
         this.rg = rg;
         this.genero = genero;
+        this.notas = nota;
+        this.status = status;
     }
 
     public Integer getIdAluno() {
@@ -109,13 +108,13 @@ public class Aluno implements Serializable {
         this.genero = genero;
     }
 
-    public List<Notas> getNota() {
+    public Notas getNota() {
         return notas;
     }
 
 
     public void setNota(Notas nota) {
-        this.notas.add(nota);
+        this.notas = nota;
     }
 
     @Override
@@ -144,5 +143,13 @@ public class Aluno implements Serializable {
                 ", genero=" + genero +
                 ", notas=" + notas +
                 '}';
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -11,6 +11,10 @@ public class Notas implements Serializable {
     private Double nota3 = 0.0;
     private Double nota4 = 0.0;
 
+    public Notas(){
+
+    }
+
     public Notas(Integer idNotas, Double nota1, Double nota2, Double nota3, Double nota4) {
         this.idNotas = idNotas;
         this.nota1 = nota1;
