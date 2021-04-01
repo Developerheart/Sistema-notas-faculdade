@@ -11,6 +11,7 @@ import java.util.Objects;
 
 public class Aluno implements Serializable {
 
+    private Integer idAluno;
     private String nome;
     private String sobrenome;
     private Integer idade;
@@ -25,7 +26,8 @@ public class Aluno implements Serializable {
      * O construtor não leva matricula, curso pois são definidos por outro sistema.
      */
 
-    public Aluno(String nome, String sobrenome, Integer idade, Date dataNascimento, String cpf, String rg, Genero genero) {
+    public Aluno(Integer idAluno,String nome, String sobrenome, Integer idade, Date dataNascimento, String cpf, String rg, Genero genero) {
+        this.idAluno = idAluno;
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.idade = idade;
@@ -33,6 +35,14 @@ public class Aluno implements Serializable {
         this.cpf = cpf;
         this.rg = rg;
         this.genero = genero;
+    }
+
+    public Integer getIdAluno() {
+        return idAluno;
+    }
+
+    public void setIdAluno(Integer idAluno) {
+        this.idAluno = idAluno;
     }
 
     public String getNome() {

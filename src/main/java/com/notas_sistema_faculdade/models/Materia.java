@@ -7,7 +7,9 @@ import java.util.Objects;
 
 public class Materia implements Serializable {
 
+    private static final long serialVersionUID = 1L;
 
+    private Integer idMateria;
     private String nomeMateria;
     private Professor professor;
     private String status;
@@ -16,6 +18,14 @@ public class Materia implements Serializable {
         this.nomeMateria = nomeMateria;
         this.professor = professor;
         this.status = status;
+    }
+
+    public Integer getIdMateria() {
+        return idMateria;
+    }
+
+    public void setIdMateria(Integer idMateria) {
+        this.idMateria = idMateria;
     }
 
     public String getNomeMateria() {
